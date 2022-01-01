@@ -1,0 +1,11 @@
+{
+  "name": "fuego_de_quasar",
+  "version": "1.0.0",
+  "description": "Mercado Libre technical interview",
+  "author": "Nicolas Hernandez <nhernandezpena@gmail.com>",
+  "main": "server_api.js",
+  "scripts": {
+    "start": "node server_api.js"
+  },
+  "dependencies": {}
+}
