@@ -1,4 +1,4 @@
-# meli_quasar
+# Mercado Libre - Fuego de Quasar
 Proyecto para entrevista Mercado Libre
 
 <img src="MeliQuasar.PNG" > .
