@@ -13,14 +13,14 @@ var satellites = [
 
 app.post('/topsecret/', (req, res) => {
     // Input Data
-    const satellites = req.body.satellites;
+    var satellites = req.body.satellites;
     let messages = [];
     let distances = [];
     
     // Extract and format data 
     for (var i = 0; i < satellites.length; i++) {
         messages.push(satellites[i].message);
-        distances.push(parseInt(satellites[i].distance));
+        distances.push(satellites[i].distance);
     };
 
     // Generete response
@@ -50,7 +50,7 @@ app.post('/topsecret_split/', (req, res) => {
     // Extract and format data 
     for (var i = 0; i < satellites.length; i++) {
         messages.push(satellites[i].message);
-        distances.push(parseInt(satellites[i].distance));
+        distances.push(satellites[i].distance);
     };
 
     // Generete response
@@ -74,7 +74,7 @@ app.post('/topsecret_split/', (req, res) => {
 app.post('/topsecret_split/:name', (req, res) => {
     // Input Data updated from request
     var satellite = satellites.find(sat => sat.name === req.params.name);
-    satellite.distance = parseInt(req.body.distance);
+    satellite.distance = req.body.distance;
     satellite.message = req.body.message;
     
     let messages = [];
@@ -83,7 +83,7 @@ app.post('/topsecret_split/:name', (req, res) => {
     // Extract and format data 
     for (var i = 0; i < satellites.length; i++) {
         messages.push(satellites[i].message);
-        distances.push(parseInt(satellites[i].distance));
+        distances.push(satellites[i].distance);
     };
 
     // Generete response
@@ -114,7 +114,7 @@ app.get('/topsecret_split/', (req, res) => {
     // Extract and format data 
     for (var i = 0; i < satellites.length; i++) {
         messages.push(satellites[i].message);
-        distances.push(parseInt(satellites[i].distance));
+        distances.push(satellites[i].distance);
     };
 
     // Generete response
@@ -135,6 +135,6 @@ app.get('/topsecret_split/', (req, res) => {
     else res.status(404).send("No hay suficiente información");
 });
 
-
+// Start server on PORT variable
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

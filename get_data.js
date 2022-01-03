@@ -6,7 +6,6 @@ const intersection = require('./circle_intersection');
 /** @type {Array <Array <number>>} */
 const satellites_cord = [[-500.0,-200.0], [100,-100], [500, 100]];
 
-
 /**
  * Calculate emitter position
  * 
