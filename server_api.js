@@ -8,8 +8,12 @@ function GetLocation(distances ) {
 }
 
 function GetMessage(messages) { 
-    const msg = messages;
-    return msg;
+    let emisor_message = ""; 
+    
+    if (!Array.isArray(messages)) return "Input not an array!"; 
+    if (messages.length === 0) return emisor_message ; 
+
+    return emisor_message;
 }
 
 module.exports = GetLocation;
