@@ -1,6 +1,8 @@
 # meli_quasar
 Proyecto para entrevista Mercado Libre
 
+<img src="MeliQuasar.PNG" > .
+
 API queda conecta al DNS ec2-54-208-177-206.compute-1.amazonaws.com en puerto 80
 
 Ej. http://ec2-54-208-177-206.compute-1.amazonaws.com:80/topsecret_split/sato
