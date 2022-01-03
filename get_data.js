@@ -41,7 +41,7 @@ function GetLocation(distances) {
 
     // Check if any intersection fails
     if (!result[0].intersect_occurs | !result[1].intersect_occurs | !result[2].intersect_occurs){
-        console.log("No hay interseccion")
+        // console.log("No hay interseccion")
         return null
     }; 
     
