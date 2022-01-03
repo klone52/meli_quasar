@@ -25,6 +25,10 @@ Se utiliza Jest para probar y corroborar el correcto funcionamiento del proyecto
 ### Instalar usando 
 `npm install --save-dev jest`
 
+### Run Test
+
+Para correr el test dentro de la carpeta del proyecto ejecutar el comando `npm test`
+
 ## Deploy
 ### Deploy Docker
 El sistema se levanta con Docker container, Dockerfile se encuentra en el repo.<br>
