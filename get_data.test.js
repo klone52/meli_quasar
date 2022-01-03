@@ -1,10 +1,10 @@
-const GetMessage = require('./server_api.js');
-// const GetLocation = require('./server_api.js');
+const { GetLocation, GetMessage } = require('./get_data.js');
+
 describe('GetMessage Testing', () => {
     test('Empty message', () => {
         let test_msg= [];
         const resultado = GetMessage(test_msg);
-        expect(resultado).toEqual(0);
+        expect(resultado).toEqual("");
     });
 
     test('No input', () => {
@@ -31,7 +31,7 @@ describe('GetMessage Testing', () => {
         let sato_msg = [];
         let test_msg= [kenobi_msg, skywalker_msg, sato_msg];
 
-        expect(GetMessage(test_msg)).toEqual(0);
+        expect(GetMessage(test_msg)).toEqual("");
     });
 
 
@@ -50,7 +50,7 @@ describe('GetMessage Testing', () => {
         let sato_msg = ["", "", "", "", "mensaje"];
         let test_msg= [kenobi_msg, skywalker_msg, sato_msg];
 
-        expect(GetMessage(test_msg)).toEqual(0);
+        expect(GetMessage(test_msg)).toEqual("");
     });
 
     test('Missing 1 satelite message', () => {
@@ -59,7 +59,37 @@ describe('GetMessage Testing', () => {
         let sato_msg = [];
         let test_msg= [kenobi_msg, skywalker_msg, sato_msg];
 
-        expect(GetMessage(test_msg)).toEqual(0);
+        expect(GetMessage(test_msg)).toEqual("");
+    });
+
+});
+
+describe('GetLocation Testing', () =>{
+    test('Empty distances array', () => {
+        expect( GetLocation([]) ).toEqual(null);
+    });
+
+    test('No input', () => {
+        expect(() => { GetLocation() }).toThrowError(/^No argument passed!$/);
+    });
+
+
+    test('List of distance not array', () => {
+        expect(() => { GetLocation(0) }).toThrowError(/^Input not an array!$/);
+
+        expect(() => { GetLocation("String") }).toThrowError(/^Input not an array!$/);
+        
+        expect(() => { GetLocation('') }).toThrowError(/^Input not an array!$/);
+    });
+
+    test('No intersection between distances', () => {
+        expect( GetLocation([100.0, 115.5, 142.7]) ).toBe(null);
+    });
+
+    // Can corroborate with https://www.desmos.com/calculator/cj12hc9jsk
+    test('Emitter position found', () => {
+        expect( GetLocation([608.276, 707.107, 948.683]).x ).toBe(-400);
+        expect( GetLocation([608.276, 707.107, 948.683]).y ).toBe(400);
     });
 
 });

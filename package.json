@@ -16,6 +16,8 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "babel-jest": "^27.4.5"
+    "@turf/turf": "^6.5.0",
+    "babel-jest": "^27.4.5",
+    "underscore": "^1.13.2"
   }
 }
