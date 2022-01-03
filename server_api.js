@@ -1,22 +1,40 @@
 //Nivel 1 
 
-
+/**
+ * Restore message emited to Satelites
+ * 
+ * @param {Array} distances - Numbers Array with distance from emisor to each satelite 
+ * @returns x: number, y: number - Emisor's coordinates 
+ * @example GetLocation([100.0, 115.5, 142.7]);
+ */
 function GetLocation(distances ) {
-    x = 0;
-    y = 0;
-    return x , y; 
-}
+    
+    
 
+/**
+ * Restore message emited to Satelites
+ * 
+ * @param {Array} messages - 2 dimension Array with Array of string from each Satelite 
+ * @returns {string} msg - Restored message 
+ * @example GetMessage([["Hello","World"],["Hello",""]]);
+ * 
+ */
 function GetMessage(messages) { 
+
+
+    /** @type {Array} */
     var emisor_message = [];
+    /** @type {number} */
     var min_length = 100000;
+    /** @type {string} */
+    var msg;
     
     // Check correct type of input or throws error
     if (arguments.length === 0) throw new Error("No argument passed!");
     if (!Array.isArray(messages)) throw new Error("Input not an array!"); 
     
     // If no messages return empty message
-    if (messages.length === 0) return 0 ; 
+    if (messages.length === 0) return "" ; 
 
     //Get min length of messages
     messages.forEach(satelite_msg => {
@@ -38,15 +56,14 @@ function GetMessage(messages) {
                 emisor_message.push(messages[satelite][word]);
                 break;
             } else {
-                if (satelite+1 == messages.length) return 0;
+                if (satelite+1 == messages.length) return "";
             };
         };
     };
 
-    const result_message = emisor_message.join(' ');
+    msg = emisor_message.join(' ');
 
-    if (result_message === "") return 0;
-    else return result_message;
+    return msg;
 }
 
 
