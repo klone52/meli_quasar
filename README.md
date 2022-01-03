@@ -26,6 +26,7 @@ Se utiliza Jest para probar y corroborar el correcto funcionamiento del proyecto
 npm install --save-dev jest
 
 ## Deploy
+### Deploy Docker
 El sistema se levanta con Docker container, Dockerfile se encuentra en el repo.
 
 Se debe tener instalado Docker Engine -> https://docs.docker.com/engine/install/ubuntu/
@@ -33,6 +34,12 @@ Se debe tener instalado Docker Engine -> https://docs.docker.com/engine/install/
 Para construirlo se tiene el bash script build.sh , el cual debe ejecutarse con sh build.sh 
 
 Para hacer el deploy usar el bash script start_quasar.sh de forma analoga al build
+
+### Deploy Directo 
+
+Para ejecutar directamente se deben haber instalado las dependencias con nmp ci --only=production o con npm install dentro de la ruta del repo
+
+Una vez actualizadas las dependecias se puede inciar el servicio con node server.js
 
 ## Configs
 El servidor usa el puerto 5000 por defecto o la variable de entorno PORT a definir dentro del contenedor
