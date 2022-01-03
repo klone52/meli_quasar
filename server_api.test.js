@@ -1,6 +1,5 @@
-import GetLocation from './server_api.js';
-import GetMessage from './server_api';
-// const GetMessage = requiere('./server_api.js');
+const GetMessage = require('./server_api.js');
+// const GetLocation = require('./server_api.js');
 
 test('Empty message', () => {
     let test_msg= [];
@@ -9,24 +8,21 @@ test('Empty message', () => {
 });
 
 test('No input', () => {
-    let test_msg= [];
-    const resultado = GetMessage();
-    expect(resultado).toEqual("Input not an array!");
+    expect(() => { GetMessage() }).toThrowError(/^No argument passed!$/)
 });
 
 
 test('List of messages not array', () => {
-    const test_msg= 2;
-    const resultado = GetMessage(test_msg);
-    expect(resultado).toEqual("Input not an array!");
+    const test_msg= 0;
+    expect(() => { GetMessage(test_msg) }).toThrowError(/^Input not an array!$/)
 
     const test_msg2= "String";
-    const resultado2 = GetMessage(test_msg2);
-    expect(resultado2).toEqual("Input not an array!");
+    expect(() => { GetMessage(test_msg2) }).toThrowError(/^Input not an array!$/)
+    
     
     const test_msg3= '';
-    const resultado3 = GetMessage(test_msg3);
-    expect(resultado3).toEqual("Input not an array!");
+    expect(() => { GetMessage(test_msg3) }).toThrowError(/^Input not an array!$/)
+
 });
 
 // test('Empty messages test', () => {
